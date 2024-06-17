@@ -1,0 +1,40 @@
+﻿﻿@model  DqdLesson09.Models.DqdKhoa
+
+@{
+    ViewBag.Title = "Dang Quang Dung - Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "DqdCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DqdTenKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DqdTrangThai)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DqdTenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DqdTrangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Dang Quang Dung - Edit", "DqdEdit", new { id = item.DqdMaKH.Trim() }) |
+                @Html.ActionLink("Dang Quang Dung - Details", "DqdDetails", new { id = item.DqdMaKH.Trim() }) |
+                @Html.ActionLink("Dang Quang Dung - Delete", "DqdDelete", new { id = item.DqdMaKH.Trim() })
+            </td>
+        </tr>
+    }
+
+</table>
